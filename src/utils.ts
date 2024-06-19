@@ -5,3 +5,7 @@ export type Character = {
   weight?: string;
   height?: string;
 };
+
+export function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
