@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useState } from 'react';
+import { ChangeEvent, useCallback, useEffect, useState } from 'react';
 import { CardList } from '../components';
 import { Character } from '../utils';
-import { getCharacters } from '../api';
+import { getCharacters, lookupCharacters } from '../api';
 
 const MAX_PAGE_COUNT = 9; // TODO: we need synchronies this with API response
 
@@ -20,7 +20,21 @@ const StarWarsView = () => {
       setCharacters(dataFromApi);
     }
     getData();
-  }, [pageNumber, searchText]);
+  }, [pageNumber]);
+
+  useEffect(() => {
+    async function lookupData() {
+      const dataFromApi = await lookupCharacters(searchText);
+      console.log('lookupData()', dataFromApi);
+      setCharacters(dataFromApi);
+    }
+    lookupData();
+  }, [searchText]);
+
+  function onSearchTextChange(event: ChangeEvent<HTMLInputElement>) {
+    const value = event.target.value;
+    setSearchText(value);
+  }
 
   const onPrevClick = useCallback(() => setPageNumber((old) => Math.max(old - 1, 1)), []);
 
@@ -30,8 +44,10 @@ const StarWarsView = () => {
 
   const nextButtonDisabled = pageNumber >= MAX_PAGE_COUNT;
 
+  console.log('rerender: ', { pageNumber, searchText });
   return (
     <div>
+      <input value={searchText} onChange={onSearchTextChange} />
       <button disabled={prevButtonDisabled} onClick={onPrevClick}>
         prev
       </button>
