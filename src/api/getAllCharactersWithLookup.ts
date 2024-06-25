@@ -1,6 +1,6 @@
 import { Character } from '../utils';
 
-async function getAllCharacters(search = ''): Promise<Character[] | undefined> {
+async function getAllCharacters(search = ''): Promise<Character[]> {
   let characters = [];
   let url: string | null = `https://swapi.py4e.com/api/people/?search=${search}`;
 

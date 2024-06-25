@@ -1,5 +1,7 @@
 import Card from './Card';
-import CardList from './CardList';
-import TextSearch from './TextSearch';
+import { CardList, PaginatedCardList } from './CardList';
+import DataView from './DataView';
+import FilterView from './FilterView';
+import SearchView from './SearchView';
 
-export { Card, CardList, TextSearch };
+export { Card, CardList, DataView, FilterView, PaginatedCardList, SearchView };
