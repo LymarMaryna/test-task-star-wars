@@ -1,10 +1,10 @@
+import './default.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { StarWarsView } from './pages';
-import './default.css';
+import MainApp from './App';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <StarWarsView />
+    <MainApp />
   </React.StrictMode>
 );
