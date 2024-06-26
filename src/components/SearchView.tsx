@@ -1,17 +1,27 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useCallback } from 'react';
+import { Box, Input } from '@chakra-ui/react';
 import { useFilteredData } from './FilteredDataProvider';
 
+/**
+ * Renders a Search input
+ * @component SearchView
+ */
 const SearchView = () => {
   const { textSearch, setTextSearch } = useFilteredData();
 
-  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setTextSearch(event.target.value);
-  };
+  const onChange = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      setTextSearch(event.target.value);
+    },
+    [setTextSearch]
+  );
 
   return (
-    <div>
-      <input value={textSearch} onChange={onChange} />
-    </div>
+    <Box
+      flexGrow={2} // Take as much space as possible
+    >
+      <Input placeholder="Enter text to search here" value={textSearch} onChange={onChange} />
+    </Box>
   );
 };
 

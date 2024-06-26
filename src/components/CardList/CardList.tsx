@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
-import styles from './CardList.module.css';
 import Card from '../Card';
 import { CharacterProps } from '../Card/Card';
+import styles from './CardList.module.css';
 
 interface Props {
   characters?: CharacterProps[];

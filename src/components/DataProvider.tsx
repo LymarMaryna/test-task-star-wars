@@ -6,12 +6,17 @@ const INITIAL_STATE: Character[] = [];
 
 export const DataContext = createContext(INITIAL_STATE);
 
+/**
+ * Hook to use data from the DataProvider context
+ * @returns {Character[]} - Array of characters
+ */
 export function useData(): Character[] {
   return useContext(DataContext);
 }
 
 /**
- * Get data from api and provide it to the children
+ * Provides data to all components inside
+ * @provider DataProvider
  */
 const DataProvider: FunctionComponent<PropsWithChildren> = ({ children }) => {
   const [allCharacters, setAllCharacters] = useState<Character[]>(INITIAL_STATE);

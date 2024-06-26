@@ -1,8 +1,6 @@
 import { FunctionComponent } from 'react';
-import { Character } from '../../utils';
+import { CharacterProps } from '../utils';
 import styles from './Card.module.css';
-
-export interface CharacterProps extends Character {}
 
 /**
  * Renders a card with character information

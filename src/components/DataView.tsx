@@ -1,5 +1,5 @@
+import { CardList, PaginatedCardList } from './CardList';
 import { useFilteredData } from './FilteredDataProvider';
-import { CardList, PaginatedCardList } from '.';
 
 /**
  * Renders CardList with character information

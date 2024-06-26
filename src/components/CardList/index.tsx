@@ -1,5 +1,4 @@
-import CardList from './CardList';
-import CardListPage from './CardListPage';
+import CardList from './CardListChakra';
 import PaginatedCardList from './PaginatedCardList';
 
-export { CardList, PaginatedCardList, CardListPage };
+export { CardList, PaginatedCardList };
