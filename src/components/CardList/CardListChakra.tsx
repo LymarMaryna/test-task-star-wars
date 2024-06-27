@@ -1,7 +1,7 @@
+import Card from '../Card';
+import { CharacterProps } from '../../providers';
 import { FunctionComponent } from 'react';
 import { SimpleGrid } from '@chakra-ui/react';
-import Card from '../Card';
-import { CharacterProps } from '../utils';
 
 interface Props {
   characters?: CharacterProps[];
@@ -17,7 +17,7 @@ const CardListChakra: FunctionComponent<Props> = ({ characters }) => {
   }
 
   return (
-    <SimpleGrid columns={{ sm: 2, md: 3, lg: 4 }} spacing="1rem">
+    <SimpleGrid mt={4} columns={{ sm: 2, md: 3, lg: 4 }} spacing="1rem">
       {characters.map((data) => (
         <Card key={data.name} {...data} />
       ))}

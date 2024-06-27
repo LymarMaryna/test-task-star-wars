@@ -1,6 +1,7 @@
 import { FunctionComponent } from 'react';
 import { Card, CardBody, Heading, Stack, Image, ListItem, UnorderedList } from '@chakra-ui/react';
-import { CharacterProps } from '../utils';
+import { CharacterProps } from '../../providers';
+import { TypeAnimation } from 'react-type-animation';
 
 /**
  * Renders a card with character information using Chakra UI
@@ -12,7 +13,14 @@ const CardChakra: FunctionComponent<CharacterProps> = ({ name, avatar, gender, m
       <CardBody>
         <Image src={avatar} alt={name} borderRadius="lg" />
         <Stack mt="6" spacing="3">
-          <Heading size="md">{name}</Heading>
+          <TypeAnimation
+            sequence={[name]}
+            wrapper="h3"
+            speed={50}
+            style={{ fontSize: '1.2em', fontWeight: 'bold' }}
+            repeat={0}
+            cursor={false}
+          />
           <UnorderedList listStyleType="none">
             <ListItem>
               Gender: <b>{gender}</b>

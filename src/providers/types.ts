@@ -24,3 +24,5 @@ export interface FilteredData {
   filterOptions: FilterOptions;
   setFilterOptions: (options: FilterOptions) => void;
 }
+
+export interface CharacterProps extends Character {}

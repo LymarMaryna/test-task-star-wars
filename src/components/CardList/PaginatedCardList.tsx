@@ -1,6 +1,8 @@
 import { FC, useCallback, useEffect, useState } from 'react';
-import { Character } from '../../utils';
+import { Character } from '../../providers';
 import CardListPage from './CardListPage';
+import { Button, Show, Stack } from '@chakra-ui/react';
+import { ArrowBackIcon, ArrowForwardIcon, ArrowLeftIcon, ArrowRightIcon } from '@chakra-ui/icons';
 
 const ITEMS_PER_PAGE = 12;
 
@@ -40,17 +42,31 @@ const PaginatedCardList: FC<Props> = ({ data }) => {
   // Internal component to render pagination only if needed
   const PaginationComposition = () =>
     data.length > itemPerPage && (
-      <div>
-        <button onClick={onFirst}>First</button>
-        <button onClick={onPrevious} disabled={pageNumber === 1}>
+      <Stack direction="row" justifyContent="center" m={4}>
+        <Show above="sm">
+          <Button onClick={onFirst} leftIcon={<ArrowLeftIcon />}>
+            First
+          </Button>
+        </Show>
+
+        <Button onClick={onPrevious} isDisabled={pageNumber === 1} leftIcon={<ArrowBackIcon />}>
           Prev
-        </button>
-        <span>{pageNumber}</span> of <span>{Math.ceil(data.length / itemPerPage)}</span>
-        <button onClick={onNext} disabled={pageNumber * itemPerPage >= data.length}>
+        </Button>
+
+        <Button>
+          {pageNumber} of {Math.ceil(data.length / itemPerPage)}
+        </Button>
+
+        <Button onClick={onNext} isDisabled={pageNumber * itemPerPage >= data.length} rightIcon={<ArrowForwardIcon />}>
           Next
-        </button>
-        <button onClick={onLast}>Last</button>
-      </div>
+        </Button>
+
+        <Show above="sm">
+          <Button onClick={onLast} rightIcon={<ArrowRightIcon />}>
+            Last
+          </Button>
+        </Show>
+      </Stack>
     );
 
   return (

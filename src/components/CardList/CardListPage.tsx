@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import CardList from './CardListChakra';
-import { Character } from '../../utils';
+import { Character } from '../../providers';
 
 interface Props {
   data: Character[];
