@@ -1,3 +1,3 @@
-import Card from './CardChakra';
+import Card from './Card';
 
 export default Card;

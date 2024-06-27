@@ -1,0 +1,22 @@
+.card {
+  flex: 1 1 calc(33.333% - 32px); /* Три колонки з урахуванням відстані між картками */
+  box-sizing: border-box;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+.card h3 {
+  margin: 16px 0 8px;
+}
+.card p {
+  margin: 0;
+  color: #555;
+}
