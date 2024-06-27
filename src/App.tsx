@@ -1,4 +1,4 @@
-import { ChakraProvider, Heading, Stack, extendTheme, withDefaultProps } from '@chakra-ui/react';
+import { ChakraProvider, Stack, extendTheme, withDefaultProps } from '@chakra-ui/react';
 import { FilterView, SearchView, DataView } from './components';
 import DataProvider from './providers/DataProvider';
 import FilteredDataProvider from './providers/FilteredDataProvider';

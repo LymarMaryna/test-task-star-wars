@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react';
-import { Card, CardBody, Heading, Stack, Image, ListItem, UnorderedList } from '@chakra-ui/react';
+import { Card, CardBody, Stack, Image, ListItem, UnorderedList } from '@chakra-ui/react';
 import { CharacterProps } from '../../providers';
 import { TypeAnimation } from 'react-type-animation';
 
