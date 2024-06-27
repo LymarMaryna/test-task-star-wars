@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "test-task-star-wars",
-  "version": "0.3.33",
+  "version": "0.5.55",
   "private": true,
   "scripts": {
     "build": "tsc && vite build",
@@ -12,17 +12,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^2.1.1",
-    "@chakra-ui/react": "^2.8.2",
-    "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.5",
-    "framer-motion": "^11.2.12",
+    "@chakra-ui/icons": "latest",
+    "@chakra-ui/react": "latest",
+    "@emotion/react": "latest",
+    "@emotion/styled": "latest",
+    "framer-motion": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-type-animation": "^3.2.0"
+    "react-type-animation": "latest"
   },
   "devDependencies": {
-    "@chakra-ui/react-types": "^2.0.7",
+    "@chakra-ui/react-types": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "@typescript-eslint/eslint-plugin": "latest",
