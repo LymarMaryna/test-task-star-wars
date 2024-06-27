@@ -22,7 +22,13 @@ const SearchView = () => {
     <Box
       flexGrow={2} // Take as much space as possible
     >
-      <Input disabled={inputDisabled} placeholder="Enter text to search here" value={textSearch} onChange={onChange} />
+      <Input
+        bg="white"
+        disabled={inputDisabled}
+        placeholder="Enter text to search here"
+        value={textSearch}
+        onChange={onChange}
+      />
     </Box>
   );
 };

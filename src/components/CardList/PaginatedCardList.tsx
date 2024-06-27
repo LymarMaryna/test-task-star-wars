@@ -1,7 +1,7 @@
 import { FC, useCallback, useEffect, useState } from 'react';
 import { Character } from '../../providers';
 import CardListPage from './CardListPage';
-import { Button, Show, Stack } from '@chakra-ui/react';
+import { Box, Button, Center, Show, Stack } from '@chakra-ui/react';
 import { ArrowBackIcon, ArrowForwardIcon, ArrowLeftIcon, ArrowRightIcon } from '@chakra-ui/icons';
 
 const ITEMS_PER_PAGE = 12;
@@ -42,27 +42,47 @@ const PaginatedCardList: FC<Props> = ({ data }) => {
   // Internal component to render pagination only if needed
   const PaginationComposition = () =>
     data.length > itemPerPage && (
-      <Stack direction="row" justifyContent="center" m={4}>
+      <Stack direction="row" justifyContent="center" alignItems="center" m={4}>
         <Show above="sm">
-          <Button onClick={onFirst} leftIcon={<ArrowLeftIcon />}>
+          <Button bg="white" leftIcon={<ArrowLeftIcon />} onClick={onFirst}>
             First
           </Button>
         </Show>
 
-        <Button onClick={onPrevious} isDisabled={pageNumber === 1} leftIcon={<ArrowBackIcon />}>
+        <Button
+          bg="white"
+          isDisabled={pageNumber === 1}
+          leftIcon={
+            <ArrowBackIcon
+            // TODO: Add aria-label to the button
+            // TODO: refactor with react-icons
+            />
+          }
+          onClick={onPrevious}
+        >
           Prev
         </Button>
 
-        <Button>
-          {pageNumber} of {Math.ceil(data.length / itemPerPage)}
-        </Button>
+        <Box>
+          Page <b>{pageNumber}</b> of <b>{Math.ceil(data.length / itemPerPage)}</b>
+        </Box>
 
-        <Button onClick={onNext} isDisabled={pageNumber * itemPerPage >= data.length} rightIcon={<ArrowForwardIcon />}>
+        <Button
+          bg="white"
+          isDisabled={pageNumber * itemPerPage >= data.length}
+          rightIcon={
+            <ArrowForwardIcon
+            // TODO: Add aria-label to the button
+            // TODO: refactor with react-icons
+            />
+          }
+          onClick={onNext}
+        >
           Next
         </Button>
 
         <Show above="sm">
-          <Button onClick={onLast} rightIcon={<ArrowRightIcon />}>
+          <Button bg="white" rightIcon={<ArrowRightIcon />} onClick={onLast}>
             Last
           </Button>
         </Show>

@@ -28,7 +28,7 @@ const FilterView = () => {
 
   return (
     <Stack direction="row">
-      <Select disabled={inputDisabled} onChange={onGenderChange}>
+      <Select bg="white" disabled={inputDisabled} onChange={onGenderChange}>
         {GENDER_OPTIONS.map((item) => (
           <option key={`gender-${item}`} value={item}>
             {GENDERS?.[item]?.text}
@@ -36,7 +36,7 @@ const FilterView = () => {
         ))}
       </Select>
 
-      <Select disabled={inputDisabled} onChange={onMassChange}>
+      <Select bg="white" disabled={inputDisabled} onChange={onMassChange}>
         {MASS_OPTIONS.map((item) => (
           <option key={`mass-${item}`} value={item}>
             {MASSES?.[item]?.text}

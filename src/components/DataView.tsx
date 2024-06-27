@@ -1,6 +1,6 @@
+import { Spinner, Stack, Text } from '@chakra-ui/react';
 import { CardList, PaginatedCardList } from './CardList';
 import { useFilteredData } from '../providers/FilteredDataProvider';
-import { Spinner, Stack } from '@chakra-ui/react';
 
 /**
  * Renders Card List with characters information
@@ -14,6 +14,17 @@ const DataView = ({ noPagination }: { noPagination: boolean }) => {
     return (
       <Stack direction="column" justify="center" height="75vh">
         <Spinner size="xl" />
+      </Stack>
+    );
+  }
+
+  if (!data.length) {
+    // Show message when no data is found
+    return (
+      <Stack direction="column" justify="center" height="75vh">
+        <Text fontSize="2xl" fontWeight="bold" color="gray.500">
+          No characters found
+        </Text>
       </Stack>
     );
   }
