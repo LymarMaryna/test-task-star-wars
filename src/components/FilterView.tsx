@@ -10,7 +10,7 @@ const MASS_OPTIONS: FilterOptions['mass'][] = ['all', 'light', 'medium', 'heavy'
  * @component FilterView
  */
 const FilterView = () => {
-  const { filterOptions, setFilterOptions } = useFilteredData();
+  const { isDataLoaded, filterOptions, setFilterOptions } = useFilteredData();
 
   const onGenderChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const gender = event.target.value as FilterOptions['gender'];
@@ -24,9 +24,11 @@ const FilterView = () => {
     setFilterOptions(options);
   };
 
+  const inputDisabled = !isDataLoaded;
+
   return (
     <Stack direction="row">
-      <Select onChange={onGenderChange}>
+      <Select disabled={inputDisabled} onChange={onGenderChange}>
         {GENDER_OPTIONS.map((item) => (
           <option key={`gender-${item}`} value={item}>
             {GENDERS?.[item]?.text}
@@ -34,7 +36,7 @@ const FilterView = () => {
         ))}
       </Select>
 
-      <Select onChange={onMassChange}>
+      <Select disabled={inputDisabled} onChange={onMassChange}>
         {MASS_OPTIONS.map((item) => (
           <option key={`mass-${item}`} value={item}>
             {MASSES?.[item]?.text}

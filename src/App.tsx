@@ -12,7 +12,12 @@ const MainApp = () => {
     <ChakraProvider>
       <DataProvider>
         <FilteredDataProvider>
-          <Stack alignItems="center" direction="column" width="100%" backgroundColor="yellow">
+          <Stack
+            alignItems="center"
+            direction="column"
+            width="100%"
+            // backgroundColor="yellow"
+          >
             <Stack direction="row" justifyContent="center" wrap="wrap">
               <SearchView />
               <FilterView />

@@ -7,7 +7,7 @@ import { useFilteredData } from '../providers/FilteredDataProvider';
  * @component SearchView
  */
 const SearchView = () => {
-  const { textSearch, setTextSearch } = useFilteredData();
+  const { isDataLoaded, textSearch, setTextSearch } = useFilteredData();
 
   const onChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
@@ -16,11 +16,13 @@ const SearchView = () => {
     [setTextSearch]
   );
 
+  const inputDisabled = !isDataLoaded;
+
   return (
     <Box
       flexGrow={2} // Take as much space as possible
     >
-      <Input placeholder="Enter text to search here" value={textSearch} onChange={onChange} />
+      <Input disabled={inputDisabled} placeholder="Enter text to search here" value={textSearch} onChange={onChange} />
     </Box>
   );
 };
