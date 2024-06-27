@@ -1,3 +1,3 @@
-import getAllCharacters from './getAllCharactersWithLookup';
+import getAllCharacters from './getAllCharacters';
 
 export { getAllCharacters };
