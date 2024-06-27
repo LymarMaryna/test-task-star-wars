@@ -1,10 +1,10 @@
-import { useFilteredData } from '../providers/FilteredDataProvider';
+import { useFilteredData } from './FilteredDataProvider';
 
 /**
- * Component for debug filtered data list. It is not used in the application.
+ * Component for debug filtered data list
  * @component FilteredDataViewer
  */
-const FilteredDataDebug = () => {
+const FilteredDataViewer = () => {
   const filteredDataValue = useFilteredData();
   return (
     <div>
@@ -14,4 +14,4 @@ const FilteredDataDebug = () => {
   );
 };
 
-export default FilteredDataDebug;
+export default FilteredDataViewer;
