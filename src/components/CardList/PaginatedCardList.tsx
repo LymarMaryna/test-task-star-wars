@@ -1,7 +1,7 @@
 import { FC, useCallback, useEffect, useState } from 'react';
 import { Character } from '../../providers';
 import CardListPage from './CardListPage';
-import { Box, Button, Center, Show, Stack } from '@chakra-ui/react';
+import { Box, Button, Show, Stack } from '@chakra-ui/react';
 import { ArrowBackIcon, ArrowForwardIcon, ArrowLeftIcon, ArrowRightIcon } from '@chakra-ui/icons';
 
 const ITEMS_PER_PAGE = 12;
