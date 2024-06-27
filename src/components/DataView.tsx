@@ -1,9 +1,9 @@
 import { CardList, PaginatedCardList } from './CardList';
-import { useFilteredData } from './FilteredDataProvider';
+import { useFilteredData } from '../providers/FilteredDataProvider';
 
 /**
- * Renders CardList with character information
- * @param noPagination - If true, renders CardList without pagination
+ * Renders Card List with characters information
+ * @param noPagination - When true, renders full Card List without pagination
  */
 const DataView = ({ noPagination }: { noPagination: boolean }) => {
   const { data } = useFilteredData();

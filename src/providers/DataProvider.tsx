@@ -1,6 +1,6 @@
 import { FunctionComponent, PropsWithChildren, createContext, useContext, useEffect, useState } from 'react';
-import { Character } from '../utils';
 import { getAllCharacters } from '../api';
+import { Character } from './types';
 
 const INITIAL_STATE: Character[] = [];
 

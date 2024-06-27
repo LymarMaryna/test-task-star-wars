@@ -1,11 +1,3 @@
-export type Character = {
-  name: string;
-  avatar: string;
-  gender?: string;
-  mass?: string;
-  height?: string;
-};
-
 /**
  * Sleep for a given number of milliseconds
  * @param {number} ms - Number of milliseconds to sleep

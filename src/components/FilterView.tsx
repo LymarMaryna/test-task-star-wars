@@ -1,10 +1,9 @@
 import { ChangeEvent } from 'react';
-import { FilterOptions, useFilteredData } from './FilteredDataProvider';
 import { Select, Stack } from '@chakra-ui/react';
-import { capitalizeFirstLetter } from '../utils';
+import { FilterOptions, GENDERS, MASSES, useFilteredData } from '../providers';
 
-const GENDERS: FilterOptions['gender'][] = ['all', 'female', 'male'];
-const MASSES: FilterOptions['mass'][] = ['all', 'light', 'medium', 'heavy'];
+const GENDER_OPTIONS: FilterOptions['gender'][] = ['all', 'female', 'male'];
+const MASS_OPTIONS: FilterOptions['mass'][] = ['all', 'light', 'medium', 'heavy'];
 
 /**
  * Renders a filter with 2 dropdowns
@@ -28,17 +27,17 @@ const FilterView = () => {
   return (
     <Stack direction="row">
       <Select onChange={onGenderChange}>
-        {GENDERS.map((item) => (
+        {GENDER_OPTIONS.map((item) => (
           <option key={`gender-${item}`} value={item}>
-            {capitalizeFirstLetter(item)}
+            {GENDERS?.[item]?.text}
           </option>
         ))}
       </Select>
 
       <Select onChange={onMassChange}>
-        {MASSES.map((item) => (
+        {MASS_OPTIONS.map((item) => (
           <option key={`mass-${item}`} value={item}>
-            {capitalizeFirstLetter(item)}
+            {MASSES?.[item]?.text}
           </option>
         ))}
       </Select>

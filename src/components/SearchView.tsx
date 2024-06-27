@@ -1,6 +1,6 @@
 import { ChangeEvent, useCallback } from 'react';
 import { Box, Input } from '@chakra-ui/react';
-import { useFilteredData } from './FilteredDataProvider';
+import { useFilteredData } from '../providers/FilteredDataProvider';
 
 /**
  * Renders a Search input

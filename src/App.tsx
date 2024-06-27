@@ -1,7 +1,7 @@
 import { ChakraProvider, Stack } from '@chakra-ui/react';
 import { FilterView, SearchView, DataView } from './components';
-import DataProvider from './components/DataProvider';
-import FilteredDataProvider from './components/FilteredDataProvider';
+import DataProvider from './providers/DataProvider';
+import FilteredDataProvider from './providers/FilteredDataProvider';
 
 /**
  * Root Application Component

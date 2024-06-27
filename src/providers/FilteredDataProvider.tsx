@@ -1,22 +1,11 @@
 import { FunctionComponent, PropsWithChildren, createContext, useContext, useState } from 'react';
-import { Character } from '../utils';
+import { FilterOptions, FilteredData } from './types';
 import { useData } from './DataProvider';
-
-export type FilterOptions = {
-  gender: 'all' | 'female' | 'male';
-  mass: 'all' | 'light' | 'medium' | 'heavy';
-};
-
-interface FilteredData {
-  data: Character[];
-  textSearch: string;
-  setTextSearch: (newTextSearch: string) => void;
-  filterOptions: FilterOptions;
-  setFilterOptions: (options: FilterOptions) => void;
-}
+import { MASSES } from './utils';
 
 const INITIAL_STATE: FilteredData = {
   data: [],
+  isDataLoaded: false, // Data is not loaded by default
   textSearch: '',
   setTextSearch: (_newTextSearch: string) => console.log('setTextSearch not implemented yet!', _newTextSearch),
   filterOptions: { gender: 'all', mass: 'all' },
@@ -29,6 +18,7 @@ export const FilteredDataContext = createContext(INITIAL_STATE);
 /**
  * Hook to use data from the FilteredDataProvider context
  * @returns {FilteredData} - Object with filtered data, text search, filter options and setters
+ * @example const { data, textSearch, setTextSearch, filterOptions, setFilterOptions } = useFilteredData();
  */
 export function useFilteredData(): FilteredData {
   return useContext(FilteredDataContext);
@@ -43,7 +33,9 @@ const FilteredDataProvider: FunctionComponent<PropsWithChildren> = ({ children }
   const [textSearch, setTextSearch] = useState<string>(INITIAL_STATE.textSearch);
   const [filterOptions, setFilterOptions] = useState<FilterOptions>(INITIAL_STATE.filterOptions);
 
-  const filteredDataValue = {
+  const isDataLoaded = fullData?.length > 0;
+
+  const contextValue = {
     data: fullData
       .filter((character) => {
         // Filter by text search
@@ -64,25 +56,28 @@ const FilteredDataProvider: FunctionComponent<PropsWithChildren> = ({ children }
           return false; // Skip characters with unknown mass
         }
 
+        console.log('mass', mass, filterOptions.mass);
+
         // Verify mass range
         switch (filterOptions.mass) {
           case 'light':
-            return mass < 50;
+            return mass < MASSES.light.max;
           case 'medium':
-            return mass >= 50 && mass <= 100;
+            return mass >= MASSES.medium.min && mass <= MASSES.medium.max;
           case 'heavy':
-            return mass > 100;
+            return mass > MASSES.heavy.min;
           default:
             return false;
         }
       }),
+    isDataLoaded,
     textSearch,
     setTextSearch,
     filterOptions,
     setFilterOptions,
   };
 
-  return <FilteredDataContext.Provider value={filteredDataValue}>{children}</FilteredDataContext.Provider>;
+  return <FilteredDataContext.Provider value={contextValue}>{children}</FilteredDataContext.Provider>;
 };
 
 export default FilteredDataProvider;

@@ -1,4 +1,6 @@
-import { Character } from '../utils';
+import { IS_DEBUG } from '../config';
+import { Character } from '../providers';
+import { sleep } from '../utils';
 
 type ExtendedCharacter = Character & { url: string };
 
@@ -27,9 +29,8 @@ async function getAllCharacters(search = ''): Promise<Character[]> {
     };
   });
 
-  // console.log('getAllCharacters - result:', result.length, result);
+  IS_DEBUG && (await sleep(2500)); // Simulate slow network
 
-  //   await sleep(2500);
   return result;
 }
 
